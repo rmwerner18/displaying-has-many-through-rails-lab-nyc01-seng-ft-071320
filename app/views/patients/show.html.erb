@@ -1,0 +1,9 @@
+<h3><%= @patient.name %></h3>
+<h4>Appointments:</h4>
+<% count = 1 %>
+<% @patient.appointments.each do |appt| %>
+    <%= "Appointment #{count}.)" %><br>
+    Date and Time: <%= appt.formatted_datetime %><br>
+    With Doctor: <%= link_to appt.doctor.name, doctor_path(appt.doctor) %><br>
+    <% count += 1%>
+<% end %>
